@@ -1,0 +1,668 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://uhf.microsoft.com/mscc/statics/mscc-0.4.0.min.css" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps;/Areas/Centers/Themes/StandardDevCenter/Content:0&amp;amp;v=B4594652562F4A360060B480B3676CD8" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:NewFooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=278A9BE8C165EB5FE01E0496D97E4AE5" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Simple Web API quick-start sample (CS)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+            <link href="https://i1.code.msdn.s-msft.com/content/common/librarydescription.css" rel="Stylesheet" type="text/css" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Simple Web API quick-start sample (CS)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Dynamics 365 Web API
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Get started with Dynamics 365 Web API
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">2/15/2018</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<div class="content">
+<div>
+<div class="topic">
+<h1 class="title">Simple Web API quick-start sample (C#)</h1>
+<div id="mainSection">
+<div id="mainBody">&nbsp;
+<p>Published: February 2, 2017</p>
+<div class="introduction">
+<p>This sample demonstrates how to authenticate with a Microsoft Dynamics 365 Server and then call a basic Web API operation, the<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-US/library/mt607925.aspx">WhoAmI Function</a>. Unlike other Web API samples, this sample
+ doesn't depend on other nonstandard helper libraries or additional source files. All of its source code is in a single file, Program.cs to help make logic flow and the authentication process easier to understand. The sample will work with online, on-premise
+ and internet-facing deployments (IFDs).</p>
+</div>
+<div class="LW_CollapsibleArea_Container">
+<div class="LW_CollapsibleArea_TitleDiv"><span class="LW_CollapsibleArea_Title">Requirements</span>
+<div class="LW_CollapsibleArea_HrDiv">
+<hr class="LW_CollapsibleArea_Hr">
+</div>
+</div>
+<div class="section">
+<p>This sample has the following requirements:</p>
+<ul class="unordered">
+<li>
+<p>To open and build the solution, Microsoft Visual Studio 2015 or later is required. Free versions of this product are available for download:
+<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://www.visualstudio.com/vs/visual-studio-express/">Visual Studio Express</a> or
+<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://www.visualstudio.com/vs/community/">Visual Studio Community</a>.</p>
+</li><li>
+<p>An internet or network connection to connect to your online or on-premise Microsoft Dynamics 365 Server, respectively.</p>
+</li><li>
+<p>A user account on your Microsoft Dynamics 365 Server (online or on-premise).</p>
+</li><li>
+<p>If Dynamics 365 (online) is used, then the sample application must be registered Azure Active Directory, as described in
+<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-US/library/mt622431.aspx">Walkthrough: Register a Dynamics 365 app with Azure Active Directory</a> .</p>
+</li><li>
+<p>If Dynamics 365 (on-premises) with Internet-facing deployment (IFD) is used, then the sample application must be registered with your Active Directory tenant, as described in
+<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-US/library/dn531010.aspx">Walkthrough: Register a Dynamics 365 app with Active Directory</a> .</p>
+</li></ul>
+<div class="alert">
+<table>
+<tbody>
+<tr>
+<th align="left"><span><img id="s-63ed43fe79224917a9711fb438a97d86-system-media-system-caps-important" title="System_CAPS_important" src="https://i-msdn.sec.s-msft.com/en-US/library/mt779074.s-63ed43fe79224917a9711fb438a97d86-system-media-system-caps-important(v=crm.8).jpeg" alt="System_CAPS_important"></span><span class="alertTitle">Important
+</span></th>
+</tr>
+<tr>
+<td>
+<p>By design, initially the solution will not build successfully. The source code must be edited at the lines indicated by
+<span class="code">//TODO</span> comments to supply user account and/or application registration information.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="LW_CollapsibleArea_Container">
+<div class="LW_CollapsibleArea_TitleDiv"><span class="LW_CollapsibleArea_Title">Demonstrates</span>
+<div class="LW_CollapsibleArea_HrDiv">
+<hr class="LW_CollapsibleArea_Hr">
+</div>
+</div>
+<div class="section">
+<p>This simple sample demonstrates two basic concepts required for development using the Web API: authentication against a Microsoft Dynamics 365 Server and forming basic Web API calls using the HTTP protocol.</p>
+</div>
+<div class="section">
+<p>Authentication is required before a client application can access any Dynamics 365 resource. This process can be nontrivial for two reasons: different authentication mechanisms are required for the different deployment types, and web-based authentication
+ mechanisms typically involve multiple programmatic steps. Windows integrated authentication, required for on-premise deployments, is relatively straightforward, and only requires a username and password. Thereafter, the program subsequently acts as an agent
+ of the authenticated user.</p>
+</div>
+<div class="section">
+<p>In contrast, online and IFD deployments require the registration of client application beforehand, and then uses a multi-step OAuth authentication process. The registration process for Dynamics 365 (online) is described in the article
+<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-US/library/mt622431.aspx">Walkthrough: Register a Dynamics 365 app with Azure Active Directory</a>. The registration process for Dynamics 365 (on-premises) with Internet-facing deployment (IFD) is described in the article
+<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-US/library/dn531010.aspx">Walkthrough: Register a Dynamics 365 app with Active Directory</a>. Each subsequent Web API request must be authenticated with OAuth. Luckily much of the complexity of OAuth authentication can
+ be simplified through the use of Active Directory Authentication Libraries (<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://docs.microsoft.com/en-us/azure/active-directory/active-directory-authentication-libraries">ADAL</a>) for .NET clients, which is added to the sample as the NuGet package
+<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/">
+Microsoft.IdentityModel.Clients.ActiveDirectory</a>. OAuth authorization is further encapsulated in this sample with the inclusion of the
+<strong>OAuthMessageHandler</strong> class, which adds the required OAuth authorization header to message requests. In future samples, supporting authentication functionality is separated into the
+<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-us/library/mt770381.aspx">Web API Helper Library</a>. For more information, see
+<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-US/library/gg328497.aspx">Authenticate users in Microsoft Dynamics 365</a>.</p>
+</div>
+<div class="section">
+<p>The Dynamics 365 Web API is a REST API based on the <a href="http://www.odata.org/documentation/">
+OData specification</a>, so it supports standardized HTTP requests against entities, and calling functions and actions. This sample demonstrates invoking the
+<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-US/library/mt607925.aspx">WhoAmI Function</a>function with a GET request, then using the information provided by this function in the resulting HTTP response. Several standard libraries are leveraged by this sample to
+ assist in this invocation:</p>
+<ul class="unordered">
+<li>
+<p>The .NET Framework classes from the <a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/library/system.net(v=vs.110).aspx">
+System.Net</a> and <a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/library/system.net.http(v=vs.110).aspx">
+System.Net.Http</a> namespaces are used for HTTP communication.</p>
+</li><li>
+<p>Because C# lacks native support for JSON, the open source <a href="http://www.newtonsoft.com/json/help/html/Introduction.htm">
+Json.NET framework</a> is included with its <a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://www.nuget.org/packages/Newtonsoft.Json">
+NuGet package</a>.</p>
+</li><li>
+<p>Asynchronous programming is supported by the <a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/library/system.threading.tasks.task(v=vs.110).aspx">
+System.Threading.Tasks</a> namespace. Because of potential delays, web access typically employs asynchronous mechanisms. For more information, see
+<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-us/library/hh191443(v=vs.120).aspx">Asynchronous Programming with Async and Await</a>.</p>
+</li></ul>
+</div>
+</div>
+<a id="bkmk_runSample"></a>
+<div class="LW_CollapsibleArea_Container"><a id="bkmk_runSample">
+<div class="LW_CollapsibleArea_TitleDiv"><span class="LW_CollapsibleArea_Title">Run this sample</span>
+<div class="LW_CollapsibleArea_HrDiv">
+<hr class="LW_CollapsibleArea_Hr">
+</div>
+</div>
+</a>
+<div class="section"><a id="bkmk_runSample"></a>
+<p><a id="bkmk_runSample">First go to </a><a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b">Simple Web API quick-start sample (C#)</a>, download the sample archive file, Simple Web API quick-start sample (CS.zip), and extract its
+ contents into a local folder. This folder should contain the following files:</p>
+<table>
+<tbody>
+<tr>
+<th>
+<p>File</p>
+</th>
+<th>
+<p>Purpose/Description</p>
+</th>
+</tr>
+<tr>
+<td>
+<p>Program.cs</p>
+</td>
+<td>
+<p>Contains the source code for this sample.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>SimpleWebApi.sln<br>
+<br>
+SimpleWebApi.csproj<br>
+<br>
+packages.config<br>
+<br>
+AssemblyInfo.cs <br>
+App.config</p>
+</td>
+<td>
+<p>The standard Microsoft Visual Studio 2015 solution, project, NuGet package configuration, assembly information, and application configuration files for this sample.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Next, use the following procedure to run this sample.</p>
+<ol class="ordered">
+<li>
+<p>Locate and double-click on the solution file, SimpleWebApi.sln, to load the solution into Visual Studio.</p>
+</li><li>
+<p>In the <strong>Solution Explorer</strong>, double-click on the file <strong>Program.cs</strong> to open it in the editor.</p>
+</li><li>
+<p>Locate the <span class="code">//TODO</span> comments within the <span class="code">
+Main</span> method, add the required connection string values and uncomment the associated lines.</p>
+</li><li>
+<p>Build the <strong>SimpleWebApi</strong> solution. This should automatically download and install all the required NuGet packages that are either missing or need to be updated.</p>
+</li><li>
+<p>Run the <strong>SimpleWebApi</strong> project from within Visual Studio. All sample solutions are configured to run in debug mode by default.</p>
+</li><li>
+<p>The behavior depends on the deployment type.</p>
+<ul class="unordered">
+<li>
+<p>For on-line and IFD deployments, the console application will open a new window to enter your user credentials and password.</p>
+</li><li>
+<p>For on-premise deployments, the console application will prompt you for a password for the supplied Dynamics 365 account.</p>
+</li></ul>
+<p>Supply this information and press <strong>Enter</strong>.</p>
+</li></ol>
+</div>
+</div>
+<a id="bkmk_codeListing">
+<div class="LW_CollapsibleArea_Container">
+<div class="LW_CollapsibleArea_TitleDiv"><span class="LW_CollapsibleArea_Title">Code listing</span>
+<div class="LW_CollapsibleArea_HrDiv">
+<hr class="LW_CollapsibleArea_Hr">
+</div>
+</div>
+<div class="section">
+<p>The most current source for this file is found in sample download package.</p>
+<p><strong>Program.cs</strong></p>
+<div class="codeSnippetContainer" id="code-snippet-1">
+<div class="code">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">      
+namespace Microsoft.Crm.Sdk.Samples
+{
+    /// &lt;summary&gt;
+    /// A basic Web API client application for Dynamics 365 (CRM). This sample authenticates 
+    /// the user and then calls the WhoAmI Web API function. 
+    /// &lt;/summary&gt;
+    /// &lt;remarks&gt; 
+    /// Prerequisites: 
+    ///   -  To run this application, you must have a CRM Online or on-premise account. 
+    ///   -  For CRM Online or Internet-facing deployments (IFD), the application must be registered  
+    ///      with Azure Active Directory as described in this article: 
+    ///      https://msdn.microsoft.com/en-us/library/dn531010.aspx
+    ///   
+    /// The WhoAmI Web API function is documented here: 
+    ///    https://msdn.microsoft.com/en-us/library/mt607925.aspx
+    /// &lt;/remarks&gt;
+    static class SimpleWebApi
+    {
+        //TODO: Uncomment then substitute your correct Dynamics 365 organization service 
+        // address for either CRM Online or on-premise (end with a forward-slash).
+        //private static string serviceUrl = &quot;https://mydomain.crm.dynamics.com/myorg/&quot;;   // CRM Online
+        //private static string serviceUrl = &quot;https://&lt;organization name&gt;.&lt;domain name&gt;/&quot;;   // CRM IFD
+        //private statics string serviceUrl = &quot;http://myserver/myorg/&quot;;        // CRM on-premises
+
+        //TODO: For an on-premises deployment, set your organization credentials here. (If
+        // online or IFD, you can you can disregard or set to null.)
+        private static string userAccount = &quot;&lt;user-account&gt;&quot;;  //CRM user account
+        private static string domain = &quot;&lt;server-domain&gt;&quot;;  //CRM server domain
+
+        //TODO: For CRM Online or IFD deployments, substitute your app registration values  
+        // here. (If on-premise, you can disregard or set to null.)
+        private static string clientId = &quot;&lt;app-reg-guid&gt;&quot;;     //e.g. &quot;e5cf0024-a66a-4f16-85ce-99ba97a24bb2&quot;
+        private static string redirectUrl = &quot;&lt;redirect-URL&gt;&quot;;  //e.g. &quot;http://localhost/SdkSample&quot;
+
+        static public void Main(string[] args)
+        {
+            //One message handler for OAuth authentication, and the other for Windows integrated 
+            // authentication.  (Assumes that HTTPS protocol only used for CRM Online.)
+            HttpMessageHandler messageHandler;
+            if (serviceUrl.StartsWith(&quot;https://&quot;))
+            {
+                messageHandler = new OAuthMessageHandler(serviceUrl, clientId, redirectUrl,
+                         new HttpClientHandler());
+            }
+            else
+            {
+                //Prompt for user account password required for on-premise credentials.  (Better
+                // approach is to use the SecureString class here.)
+                Console.Write(&quot;Please enter the password for account {0}: &quot;, userAccount);
+                string password = Console.ReadLine().Trim();
+                NetworkCredential credentials = new NetworkCredential(userAccount, password, domain);
+                messageHandler = new HttpClientHandler() { Credentials = credentials };
+            }
+            try
+            {
+                //Create an HTTP client to send a request message to the CRM Web service.
+                using (HttpClient httpClient = new HttpClient(messageHandler))
+                {
+                    //Specify the Web API address of the service and the period of time each request 
+                    // has to execute.
+                    httpClient.BaseAddress = new Uri(serviceUrl);
+                    httpClient.Timeout = new TimeSpan(0, 2, 0);  //2 minutes
+
+                    //Send the WhoAmI request to the Web API using a GET request. 
+                    var response = httpClient.GetAsync(&quot;api/data/v8.1/WhoAmI&quot;,
+                            HttpCompletionOption.ResponseHeadersRead).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        //Get the response content and parse it.
+                        JObject body = JObject.Parse(response.Content.ReadAsStringAsync().Result);
+                        Guid userId = (Guid)body[&quot;UserId&quot;];
+                        Console.WriteLine(&quot;Your system user ID is: {0}&quot;, userId);
+                    }
+                    else
+                    {
+                        Console.WriteLine(&quot;The request failed with a status of '{0}'&quot;,
+                               response.ReasonPhrase);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayException(ex);
+                throw;
+            }
+            finally
+            {
+                Console.WriteLine(&quot;Press &lt;Enter&gt; to exit the program.&quot;);
+                Console.ReadLine();
+            }
+        }
+
+        /// &lt;summary&gt; Displays exception information to the console. &lt;/summary&gt;
+        /// &lt;param name=&quot;ex&quot;&gt;The exception to output&lt;/param&gt;
+        private static void DisplayException(Exception ex)
+        {
+            Console.WriteLine(&quot;The application terminated with an error.&quot;);
+            Console.WriteLine(ex.Message);
+            while (ex.InnerException != null)
+            {
+                Console.WriteLine(&quot;\t* {0}&quot;, ex.InnerException.Message);
+                ex = ex.InnerException;
+            }
+        }
+    }
+
+    /// &lt;summary&gt;
+    ///Custom HTTP message handler that uses OAuth authentication thru ADAL.
+    /// &lt;/summary&gt;
+    class OAuthMessageHandler : DelegatingHandler
+    {
+        private AuthenticationHeaderValue authHeader;
+
+        public OAuthMessageHandler(string serviceUrl, string clientId, string redirectUrl,
+                HttpMessageHandler innerHandler)
+            : base(innerHandler)
+        {
+            // Obtain the Azure Active Directory Authentication Library (ADAL) authentication context.
+            AuthenticationParameters ap = AuthenticationParameters.CreateFromResourceUrlAsync(
+                    new Uri(serviceUrl &#43; &quot;api/data/&quot;)).Result;
+            AuthenticationContext authContext = new AuthenticationContext(ap.Authority, false);
+            //Note that an Azure AD access token has finite lifetime, default expiration is 60 minutes.
+            AuthenticationResult authResult = authContext.AcquireToken(serviceUrl, clientId, new Uri(redirectUrl));
+            authHeader = new AuthenticationHeaderValue(&quot;Bearer&quot;, authResult.AccessToken);
+        }
+
+        protected override Task&lt;HttpResponseMessage&gt; SendAsync(
+                 HttpRequestMessage request, <a class="libraryLink" href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-US/library/System.Threading.CancellationToken.aspx"  title="Auto generated link to System.Threading.CancellationToken">System.Threading.CancellationToken</a> cancellationToken)
+        {
+            request.Headers.Authorization = authHeader;
+            return base.SendAsync(request, cancellationToken);
+        }
+    }
+}
+
+    </pre>
+<pre id="codePreview" class="csharp">      
+namespace Microsoft.Crm.Sdk.Samples
+{
+    /// &lt;summary&gt;
+    /// A basic Web API client application for Dynamics 365 (CRM). This sample authenticates 
+    /// the user and then calls the WhoAmI Web API function. 
+    /// &lt;/summary&gt;
+    /// &lt;remarks&gt; 
+    /// Prerequisites: 
+    ///   -  To run this application, you must have a CRM Online or on-premise account. 
+    ///   -  For CRM Online or Internet-facing deployments (IFD), the application must be registered  
+    ///      with Azure Active Directory as described in this article: 
+    ///      https://msdn.microsoft.com/en-us/library/dn531010.aspx
+    ///   
+    /// The WhoAmI Web API function is documented here: 
+    ///    https://msdn.microsoft.com/en-us/library/mt607925.aspx
+    /// &lt;/remarks&gt;
+    static class SimpleWebApi
+    {
+        //TODO: Uncomment then substitute your correct Dynamics 365 organization service 
+        // address for either CRM Online or on-premise (end with a forward-slash).
+        //private static string serviceUrl = &quot;https://mydomain.crm.dynamics.com/myorg/&quot;;   // CRM Online
+        //private static string serviceUrl = &quot;https://&lt;organization name&gt;.&lt;domain name&gt;/&quot;;   // CRM IFD
+        //private statics string serviceUrl = &quot;http://myserver/myorg/&quot;;        // CRM on-premises
+
+        //TODO: For an on-premises deployment, set your organization credentials here. (If
+        // online or IFD, you can you can disregard or set to null.)
+        private static string userAccount = &quot;&lt;user-account&gt;&quot;;  //CRM user account
+        private static string domain = &quot;&lt;server-domain&gt;&quot;;  //CRM server domain
+
+        //TODO: For CRM Online or IFD deployments, substitute your app registration values  
+        // here. (If on-premise, you can disregard or set to null.)
+        private static string clientId = &quot;&lt;app-reg-guid&gt;&quot;;     //e.g. &quot;e5cf0024-a66a-4f16-85ce-99ba97a24bb2&quot;
+        private static string redirectUrl = &quot;&lt;redirect-URL&gt;&quot;;  //e.g. &quot;http://localhost/SdkSample&quot;
+
+        static public void Main(string[] args)
+        {
+            //One message handler for OAuth authentication, and the other for Windows integrated 
+            // authentication.  (Assumes that HTTPS protocol only used for CRM Online.)
+            HttpMessageHandler messageHandler;
+            if (serviceUrl.StartsWith(&quot;https://&quot;))
+            {
+                messageHandler = new OAuthMessageHandler(serviceUrl, clientId, redirectUrl,
+                         new HttpClientHandler());
+            }
+            else
+            {
+                //Prompt for user account password required for on-premise credentials.  (Better
+                // approach is to use the SecureString class here.)
+                Console.Write(&quot;Please enter the password for account {0}: &quot;, userAccount);
+                string password = Console.ReadLine().Trim();
+                NetworkCredential credentials = new NetworkCredential(userAccount, password, domain);
+                messageHandler = new HttpClientHandler() { Credentials = credentials };
+            }
+            try
+            {
+                //Create an HTTP client to send a request message to the CRM Web service.
+                using (HttpClient httpClient = new HttpClient(messageHandler))
+                {
+                    //Specify the Web API address of the service and the period of time each request 
+                    // has to execute.
+                    httpClient.BaseAddress = new Uri(serviceUrl);
+                    httpClient.Timeout = new TimeSpan(0, 2, 0);  //2 minutes
+
+                    //Send the WhoAmI request to the Web API using a GET request. 
+                    var response = httpClient.GetAsync(&quot;api/data/v8.1/WhoAmI&quot;,
+                            HttpCompletionOption.ResponseHeadersRead).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        //Get the response content and parse it.
+                        JObject body = JObject.Parse(response.Content.ReadAsStringAsync().Result);
+                        Guid userId = (Guid)body[&quot;UserId&quot;];
+                        Console.WriteLine(&quot;Your system user ID is: {0}&quot;, userId);
+                    }
+                    else
+                    {
+                        Console.WriteLine(&quot;The request failed with a status of '{0}'&quot;,
+                               response.ReasonPhrase);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayException(ex);
+                throw;
+            }
+            finally
+            {
+                Console.WriteLine(&quot;Press &lt;Enter&gt; to exit the program.&quot;);
+                Console.ReadLine();
+            }
+        }
+
+        /// &lt;summary&gt; Displays exception information to the console. &lt;/summary&gt;
+        /// &lt;param name=&quot;ex&quot;&gt;The exception to output&lt;/param&gt;
+        private static void DisplayException(Exception ex)
+        {
+            Console.WriteLine(&quot;The application terminated with an error.&quot;);
+            Console.WriteLine(ex.Message);
+            while (ex.InnerException != null)
+            {
+                Console.WriteLine(&quot;\t* {0}&quot;, ex.InnerException.Message);
+                ex = ex.InnerException;
+            }
+        }
+    }
+
+    /// &lt;summary&gt;
+    ///Custom HTTP message handler that uses OAuth authentication thru ADAL.
+    /// &lt;/summary&gt;
+    class OAuthMessageHandler : DelegatingHandler
+    {
+        private AuthenticationHeaderValue authHeader;
+
+        public OAuthMessageHandler(string serviceUrl, string clientId, string redirectUrl,
+                HttpMessageHandler innerHandler)
+            : base(innerHandler)
+        {
+            // Obtain the Azure Active Directory Authentication Library (ADAL) authentication context.
+            AuthenticationParameters ap = AuthenticationParameters.CreateFromResourceUrlAsync(
+                    new Uri(serviceUrl &#43; &quot;api/data/&quot;)).Result;
+            AuthenticationContext authContext = new AuthenticationContext(ap.Authority, false);
+            //Note that an Azure AD access token has finite lifetime, default expiration is 60 minutes.
+            AuthenticationResult authResult = authContext.AcquireToken(serviceUrl, clientId, new Uri(redirectUrl));
+            authHeader = new AuthenticationHeaderValue(&quot;Bearer&quot;, authResult.AccessToken);
+        }
+
+        protected override Task&lt;HttpResponseMessage&gt; SendAsync(
+                 HttpRequestMessage request, <a class="libraryLink" href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-US/library/System.Threading.CancellationToken.aspx"  title="Auto generated link to System.Threading.CancellationToken">System.Threading.CancellationToken</a> cancellationToken)
+        {
+            request.Headers.Authorization = authHeader;
+            return base.SendAsync(request, cancellationToken);
+        }
+    }
+}
+
+    </pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+</div>
+<hr class="codeDivider">
+</div>
+</div>
+</div>
+</a>
+<div class="LW_CollapsibleArea_Container"><a id="bkmk_codeListing">
+<div class="LW_CollapsibleArea_TitleDiv"><span class="LW_CollapsibleArea_Title">See Also</span>
+<div class="LW_CollapsibleArea_HrDiv">
+<hr class="LW_CollapsibleArea_Hr">
+</div>
+</div>
+</a>
+<p><a id="bkmk_codeListing"></a><a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-US/library/mt607689.aspx">Web API Reference</a><br>
+<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-US/library/mt742425.aspx">Web API Samples</a><br>
+<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-US/library/mt770381.aspx">Use the Microsoft Dynamics 365 Web API Helper Library (C#)</a><br>
+<a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-US/library/gg328497.aspx">Authenticate users in Microsoft Dynamics 365</a></p>
+</div>
+<p>&nbsp;</p>
+<p>Microsoft Dynamics 365</p>
+<p>&copy; 2017 Microsoft. All rights reserved. <a href="https://code.msdn.microsoft.com/Simple-Web-API-quick-start-e0ba3d6b/https://msdn.microsoft.com/en-US/library/gg490658.aspx">
+Copyright</a></p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
